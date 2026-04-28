@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://artesanadelbarro.com.ar/</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://artesanadelbarro.com.ar/img/hero_bg.webp</image:loc>
+      <image:title>Taller de Cerámica Artesana del Barro - Caballito, Buenos Aires</image:title>
+      <image:caption>Clases de alfarería y modelado manual en Caballito, CABA</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://artesanadelbarro.com.ar/img/studio_interior.webp</image:loc>
+      <image:title>Interior del taller de cerámica Artesana del Barro</image:title>
+      <image:caption>Espacio boutique de cerámica en Caballito con mesas de trabajo y tornos profesionales</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://artesanadelbarro.com.ar/img/student_working.webp</image:loc>
+      <image:title>Alumna trabajando en modelado manual de cerámica</image:title>
+      <image:caption>Clases de modelado manual en taller de cerámica Caballito Buenos Aires</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://artesanadelbarro.com.ar/img/kiln_glow.webp</image:loc>
+      <image:title>Horno cerámico profesional de 70 litros</image:title>
+      <image:caption>Servicio de horneadas para ceramistas en Buenos Aires - Horno 70 lts</image:caption>
+    </image:image>
   </url>
 </urlset>

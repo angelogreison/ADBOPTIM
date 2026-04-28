@@ -1,4 +1,22 @@
 User-agent: *
 Allow: /
+Disallow: /cdn-cgi/
+
+# Bloquear parámetros de tracking para evitar contenido duplicado
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+
+# Permitir recursos importantes para renderizado
+Allow: /css/
+Allow: /js/
+Allow: /img/
 
 Sitemap: https://artesanadelbarro.com.ar/sitemap.xml
+
+# Crawl-delay para bots no-Google
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10

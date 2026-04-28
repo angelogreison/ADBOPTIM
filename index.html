@@ -248,8 +248,8 @@
   <!-- LCP image: preload con fetchpriority -->
   <link rel="preload" href="img/hero_bg.webp" as="image" fetchpriority="high" type="image/webp">
   <!-- CSS crítico: preload -->
-  <link rel="preload" href="css/style.css?v=202604222138" as="style">
-  <link rel="preload" href="css/schedule.css?v=202604222138" as="style">
+  <link rel="preload" href="css/style.min.css?v=202604282000" as="style">
+  <link rel="preload" href="css/schedule.min.css?v=202604282000" as="style">
 
   <!-- Google Fonts: preconnect + carga async -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -268,8 +268,8 @@
   <link rel="apple-touch-icon" href="logo.webp">
 
   <!-- CSS: carga directa (no render-blocking ya que son preloaded) -->
-  <link rel="stylesheet" href="css/style.css?v=202604222138">
-  <link rel="stylesheet" href="css/schedule.css?v=202604222138">
+  <link rel="stylesheet" href="css/style.min.css?v=202604282000">
+  <link rel="stylesheet" href="css/schedule.min.css?v=202604282000">
 
   <!-- Meta Pixel: diferido al load -->
   <script>
@@ -325,7 +325,7 @@
 
       <div class="nav-right">
         <a href="https://wa.me/5491156206435?text=Hola%20Mariana!%20Me%20interesa%20info%20sobre%20las%20clases%20de%20cer%C3%A1mica%20%F0%9F%8F%BA"
-          target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+          target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contactar por WhatsApp - Ir al chat">
           <img src="wa-white.webp" class="wa-icon-v2" alt="" width="20" height="20" aria-hidden="true">
           <span class="wa-text">CONTÁCTANOS</span>
         </a>
@@ -351,7 +351,7 @@
     <!-- HERO -->
     <section class="hero" aria-label="Bienvenida al taller de cerámica">
       <!-- LCP image: NO lazy, fetchpriority high, width/height explícito -->
-      <img src="img/hero_bg.webp" class="hero-bg" fetchpriority="high" decoding="async" alt="Taller de cerámica Artesana del Barro en Caballito, Buenos Aires" width="1920" height="1080">
+      <img src="img/hero_bg.webp" class="hero-bg" fetchpriority="high" decoding="sync" alt="Taller de cerámica Artesana del Barro en Caballito, Buenos Aires" width="1920" height="1080">
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
         <div class="eyebrow-badge">📍 CABALLITO · A SOLO 2 CUADRAS DEL SUBTE A - RÍO DE JANEIRO</div>
@@ -787,7 +787,7 @@
           <a href="#horarios" class="btn btn-primary-hero">RESERVAR MI TURNO →</a>
           <a href="https://wa.me/5491156206435?text=Hola%20Mariana!%20Quiero%20reservar%20mi%20lugar%20en%20el%20taller%20%F0%9F%8F%BA" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-hero">
             <img src="wa-white.webp" class="wa-icon-v2" alt="" aria-hidden="true" width="20" height="20">
-            <span class="wa-text">CONTÁCTANOS</span>
+            <span class="wa-text">ESCRIBINOS POR WHATSAPP</span>
           </a>
         </div>
 
@@ -940,9 +940,9 @@
 
         <div class="footer-contact">
           <h3 class="montserrat text-terracotta uppercase font-13 tracking-3 mb-20">CONTACTO</h3>
-          <a href="https://wa.me/5491156206435?text=Hola%20Mariana!" target="_blank" rel="noopener noreferrer" class="whatsapp-btn inline-flex mb-20" aria-label="Contactar por WhatsApp">
+          <a href="https://wa.me/5491156206435?text=Hola%20Mariana!" target="_blank" rel="noopener noreferrer" class="whatsapp-btn inline-flex mb-20" aria-label="Abrir WhatsApp para consultar">
             <img src="wa-white.webp" class="wa-icon-v2" alt="" aria-hidden="true" width="20" height="20">
-            <span class="wa-text">CONTÁCTANOS</span>
+            <span class="wa-text">CHATEÁ CON NOSOTRAS</span>
           </a>
           <div class="footer-info-details">
             <p class="montserrat footer-text-sync mb-10">📧 <a href="mailto:artesanadelbarro@gmail.com" class="contact-link footer-text-sync">artesanadelbarro@gmail.com</a></p>
@@ -1043,6 +1043,25 @@
       };
     });
   </script>
+
+  <!-- IntersectionObserver para animaciones de entrada (reemplaza animate-fade-in estático) -->
+  <script>
+    (function() {
+      if (!('IntersectionObserver' in window)) return;
+      var els = document.querySelectorAll('.animate-fade-in');
+      els.forEach(function(el) { el.classList.add('will-animate'); });
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      els.forEach(function(el) { io.observe(el); });
+    })();
+  </script>
+
 </body>
 
 </html>
